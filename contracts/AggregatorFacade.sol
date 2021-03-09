@@ -7,6 +7,7 @@ import "./interfaces/AggregatorV2V3Interface.sol";
  * @title A facade forAggregator versions to conform to the new v0.6
  * Aggregator V3 interface.
  */
+// 一个符合新的v0.6聚合器V3接口的聚合器版本facade。
 contract AggregatorFacade is AggregatorV2V3Interface {
     AggregatorInterface public aggregator;
     uint8 public override decimals;

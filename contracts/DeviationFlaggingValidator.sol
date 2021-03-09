@@ -13,6 +13,8 @@ import "./interfaces/FlagsInterface.sol";
  * threshold is passed then the validator raises a flag on the designated
  * flag contract.
  */
+// 偏差标记验证器合同
+// 将当前值与前一个值进行比较，并确保它不会偏离某个相对范围。如果超过了偏差阈值，验证器将在指定的标志契约上引发一个标志。
 contract DeviationFlaggingValidator is Owned, AggregatorValidatorInterface {
     using CheckedMath for int256;
 
@@ -39,6 +41,9 @@ contract DeviationFlaggingValidator is Owned, AggregatorValidatorInterface {
      * raised. Setting the value of 100,000 is equivalent to tolerating a 100%
      * change compared to the previous price.
      */
+    //@notice用它的阈值和标志地址来设置验证器。
+    //@param 设置flags契约的地址
+    //@param _flaggingThreshold设置一个阈值，这个阈值会触发一个被触发的标志。设置100000的值相当于允许与之前的价格相比有100%的变化。
     constructor(address _flags, uint24 _flaggingThreshold) public {
         setFlagsAddress(_flags);
         setFlaggingThreshold(_flaggingThreshold);

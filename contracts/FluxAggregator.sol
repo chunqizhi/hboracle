@@ -19,6 +19,9 @@ import "./vendor/SafeMathHashBridgeOracle.sol";
  * single answer. The latest aggregated answer is exposed as well as historical
  * answers and their updated at timestamp.
  */
+// 预付聚合器合同
+// 处理从链外推入的聚合数据，并为oracle打开他们报告的支付。甲骨文的意见书是按轮收集的，
+// 每轮都将每个甲骨文的意见书汇总成一个答案。最新的汇总答案以及历史答案和它们的时间戳更新被公开。
 contract FluxAggregator is AggregatorV2V3Interface, Owned {
     using SafeMathHashBridgeOracle for uint256;
     using SafeMath128 for uint128;
@@ -149,6 +152,15 @@ contract FluxAggregator is AggregatorV2V3Interface, Owned {
      * @param _decimals represents the number of decimals to offset the answer by
      * @param _description a short description of what is being reported
      */
+    //@notice用初始配置设置聚合器
+    //@param _hbo HBO令牌的地址
+    //@param _paymentAmount HBO支付给oracle公司的每笔交易金额，在魏国(单位为10¹voc)
+    //@param _timeout是在允许oracle跳过一个未完成的轮之前允许超时的秒数
+    //@param _validator是一个可选的合约地址，用于验证答案的外部验证
+    //@param _minSubmissionValue是一个不可变的检查，用于检查oracle所接受的提交值的下限
+    //@param _maxSubmissionValue是一个不可变的检查，用于检查oracle接收的提交值的上限
+    //@param _decimal表示要偏移答案的小数数
+    //@param _description对报告内容的简短描述
     constructor(
         address _hbo,
         uint128 _paymentAmount,

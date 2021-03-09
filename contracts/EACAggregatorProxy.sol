@@ -13,6 +13,10 @@ import "./interfaces/AccessControllerInterface.sol";
  * @notice Only access enabled addresses are allowed to access getters for
  * aggregated answers and round information.
  */
+// 外部访问控制的聚合器代理
+// 一个受信任的代理，用于更新读取当前答案的位置
+// 该契约为聚合器和AggregatorV3Interface提供了一致的地址，但将它的读取位置委托给所有者，后者被信任来更新它。
+// 只有启用访问的地址才允许访问聚合的答案和整数信息的getter。
 contract EACAggregatorProxy is AggregatorProxy {
     AccessControllerInterface public accessController;
 

@@ -15,6 +15,8 @@ import {
  * @notice Contract writers can inherit this contract in order to create requests for the
  * HashBridgeOracle network
  */
+// HashBridgeOracleClient合同
+// 契约作者可以继承这个契约，以便为HashBridgeOracle网络创建请求
 contract HashBridgeOracleClient {
     using HashBridgeOracle for HashBridgeOracle.Request;
 

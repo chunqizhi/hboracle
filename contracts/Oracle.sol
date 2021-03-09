@@ -13,6 +13,7 @@ import "./vendor/SafeMathHashBridgeOracle.sol";
  * @title The HashBridgeOracle Oracle contract
  * @notice Node operators can deploy this contract to fulfill requests sent to them
  */
+// 节点操作符可以部署这个契约来满足发送给它们的请求
 contract Oracle is
     HashBridgeOracleRequestInterface,
     OracleInterface,

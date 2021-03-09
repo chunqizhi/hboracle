@@ -5,6 +5,7 @@ pragma solidity ^0.6.0;
  * @title The Owned contract
  * @notice A contract with helpers for basic contract ownership.
  */
+// 与帮助者签订的关于基本合同所有权的合同。
 contract Owned {
     address public owner;
     address private pendingOwner;

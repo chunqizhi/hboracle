@@ -9,6 +9,7 @@ import "./SimpleReadAccessController.sol";
  * @notice This contract requires addresses to be added to a controller
  * in order to read the answers stored in the FluxAggregator contract
  */
+// 这个契约要求将地址添加到控制器，以便读取存储在FluxAggregator契约中的答案
 contract AccessControlledAggregator is
     FluxAggregator,
     SimpleReadAccessController
@@ -28,6 +29,16 @@ contract AccessControlledAggregator is
      * @param _decimals represents the number of decimals to offset the answer by
      * @param _description a short description of what is being reported
      */
+    //@notice 用初始配置设置聚合器
+    //@param _hbo HBO令牌的地址
+    //@param _paymentAmount HBO支付给oracle公司的每笔交易金额，在魏国(单位为10¹voc)
+    //@param _timeout是在允许oracle跳过一个未完成的轮之前允许超时的秒数
+    //@param _validator是一个可选的合约地址，用于验证答案的外部验证
+    //@param _minSubmissionValue是一个不可变的检查，用于检查oracle所接受的提交值的下限
+    //@param _maxSubmissionValue是一个不可变的检查，用于检查oracle接收的提交值的上限
+    //@param _decimal表示要偏移答案的小数数
+    //@param _description对报告内容的简短描述
+
     constructor(
         address _hbo,
         uint128 _paymentAmount,

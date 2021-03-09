@@ -13,6 +13,8 @@ import "./vendor/SafeMathHashBridgeOracle.sol";
  * @dev This contract accepts requests as service agreement IDs and loops over
  * the corresponding list of oracles to create distinct requests to each one.
  */
+// PreCoordinator是一种契约，它使用当前的“1 request to 1 oracle契约”架构构建链上服务协议。
+// 这个契约将请求作为服务协议id和遍历oracle相应列表的循环接受，从而为每个oracle创建不同的请求。
 contract PreCoordinator is
     HashBridgeOracleClient,
     Ownable,

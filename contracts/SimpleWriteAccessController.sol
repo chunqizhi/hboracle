@@ -11,6 +11,8 @@ import "./interfaces/AccessControllerInterface.sol";
  * @dev does not make any special permissions for externally, see
  * SimpleReadAccessController for that.
  */
+// 允许访问控制器所有者显式添加到访问列表中的帐户。
+// 不为外部设置任何特殊权限，请参阅SimpleReadAccessController。
 contract SimpleWriteAccessController is AccessControllerInterface, Owned {
     bool public checkEnabled;
     mapping(address => bool) internal accessList;

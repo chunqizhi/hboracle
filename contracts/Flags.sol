@@ -13,6 +13,9 @@ import "./interfaces/FlagsInterface.sol";
  * to allow addresses to raise flags on themselves, so if you are subscribing to
  * FlagOn events you should filter for addresses you care about.
  */
+// 旗帜的合同
+// 允许标志向访问控制列表中的任何读取器发送信号。
+// 所有者可以设置标志，也可以指定其他地址来设置标志。所有者必须关闭标志，其他setter不能。一个预期的模式是允许地址在自己身上升起标记，所以如果您订阅了FlagOn事件，您应该过滤您关心的地址。
 contract Flags is FlagsInterface, SimpleReadAccessController {
     AccessControllerInterface public raisingAccessController;
 

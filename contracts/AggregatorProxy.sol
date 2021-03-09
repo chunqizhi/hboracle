@@ -10,6 +10,8 @@ import "./interfaces/AggregatorV2V3Interface.sol";
  * CurrentAnwerInterface but delegates where it reads from to the owner, who is
  * trusted to update it.
  */
+// 一个受信任的代理，用于更新读取当前答案的位置。
+// 这个契约为CurrentAnwerInterface提供了一个一致的地址，但将读取地址委托给所有者，后者被信任来更新它。
 contract AggregatorProxy is AggregatorV2V3Interface, Owned {
     struct Phase {
         uint16 id;
